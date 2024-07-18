@@ -1,0 +1,397 @@
+<!PÁGINA WEB TEMPORAL PARA EL ARCHIVO MODULAR - EXTINCIÓN DE DOMINIO>
+<html>
+<head>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+        }
+        .button-header-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            z-index: 1000;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+        }
+        .button-container button {
+            background-color: maroon;
+            color: white;
+            font-size: 15px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        .button-container button:hover {
+            opacity: 0.8;
+        }
+        .maroon-line {
+            position: relative;
+            width: 80%;
+            height: 3px;
+            background-color: maroon;
+            margin: 0 auto;
+            padding: 1px 0;
+        }
+        .maroon-line::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 0.3px;
+            background-color: white;
+            transform: translateY(-50%);
+        }
+        .fixed-header {
+            padding-top: 10px;
+            display: none;
+        }
+        .fixed-header h1 {
+            color: maroon;
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .content-container {
+            display: none;
+            background-color: white;
+            color: maroon;
+            padding-top: 160px;
+            height: calc(100vh - 160px);
+            overflow: hidden;
+        }
+        .content-container.active {
+            display: block;
+        }
+        .list-container {
+            display: none;
+            background-color: white;
+            color: maroon;
+            border: 2px solid white;
+            padding: 0 170px;
+            height: calc(100vh - 160px);
+            overflow: hidden;
+        }
+        .list-container.active {
+            display: block;
+        }
+        .header2 {
+            font-weight: 900;
+            color: maroon;
+            border-bottom: 2px solid maroon;
+            padding-bottom: 5px;
+            flex: 1;
+        }
+        .header3 {
+            font-weight: 900;
+            color: #007bff;
+            border-bottom: 2px solid maroon;
+            padding-bottom: 5px;
+            flex: 1;
+        }
+        .header5 {
+            font-size: 10px;
+            color: maroon;
+        }
+        .header6 {
+            font-size: 70px;
+            color: white;
+        }
+        .header7 {
+            font-size: 35px;
+            color: white;
+        }
+        .lista-inicio li {
+            font-size: 20px;
+            font-weight: 500;
+            color: #000000;
+            max-width: 100%;
+            margin: 0 auto;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .lista-inicio.horizontal {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            padding: 0;
+        }
+        .lista-inicio.vertical {
+            display: block;
+            margin: 0;
+        }
+        .text-container {
+            height: calc(100% - 48px);
+            overflow-y: auto;
+            padding: 0 170px;
+        }
+        .text-container p {
+            font-size: 19px;
+            color: black;
+            text-align: justify;
+        }
+        .header-image {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        iframe {
+            width: 100%;
+            height: calc(80% - 100px);
+            border: 0;
+            overflow: auto;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 0.1px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .contentenido {
+            padding: 20px;
+            min-height: 80vh;
+        }
+
+        /* Media Queries para diseño responsivo */
+        @media (max-width: 600px) {
+            .button-container button {
+                font-size: 12px;
+                padding: 8px 16px;
+            }
+            .fixed-header h1 {
+                font-size: 24px;
+            }
+            .text-container {
+                padding: 0 10px;
+            }
+            .list-container {
+                padding: 0 10px;
+            }
+        }
+
+        @media (min-width: 601px) and (max-width: 1024px) {
+            .button-container button {
+                font-size: 14px;
+                padding: 9px 18px;
+            }
+            .fixed-header h1 {
+                font-size: 28px;
+            }
+            .text-container {
+                padding: 0 20px;
+            }
+            .list-container {
+                padding: 0 20px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .button-container button {
+                font-size: 15px;
+                padding: 10px 20px;
+            }
+            .fixed-header h1 {
+                font-size: 32px;
+            }
+            .text-container {
+                padding: 0 170px;
+            }
+            .list-container {
+                padding: 0 170px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<!-------------------------------------------------------------------------->
+<!CONFIGURACIÓN DE LOS BOTONES "INICIO" Y "ARCHIVO">
+<!-------------------------------------------------------------------------->
+<div class="button-header-container">
+    <!-- Imagen centrada arriba -->
+    <img src="https://i.ibb.co/4g9bBZt/Encabezado.png" alt="Encabezado" class="header-image right-image">
+    <h3 class="header6"></h3>
+    <div class="button-container">
+        <button onclick="showContent('inicio')">Inicio</button>
+        <button onclick="showContent('archivo')">Archivo Modular</button>
+    </div>
+    <div class="maroon-line"></div> <!-- Línea maroon debajo de los botones -->
+    <div id="fixed-header" class="fixed-header">
+        <h1>ARCHIVO MODULAR DE EXTINCION DE DOMINIO</h1>
+        <div class="button-container">
+            <button onclick="showList('list1')">Lista de Expedientes de Juzgado</button>
+            <button onclick="showList('list2')">Lista de Expedientes de Sala</button>
+        </div>
+    </div>
+</div>
+<!-------------------------------------------------------------------------->
+<!DESPLIEGUE DEL BOTÓN "INICIO">
+<!-------------------------------------------------------------------------->
+<div id="inicio" class="content-container active">
+    <div class="text-container">
+        <h3 class="header3">HISTORIA</h3>
+        <p>Por Resolución Administrativa Nº 122-2019-CE-PJ, de fecha 20 de Marzo de 2019, se constituye el Sub Sistema Nacional Especializado en Extinción de Dominio y se dispone la creación de 21 Juzgados Especializados y 3 Salas de Apelaciones Especializadas a nivel nacional que conforman dicho sub sistema, dentro de los cuales se encuentran el Juzgado Transitorio Especializado en Extinción de Dominio y la Sala de Apelaciones Transitoria Especializada en Extinción de Dominio de la Corte Superior de Justicia de La Libertad.</p>
+        <h3 class="header3">VISIÓN</h3>
+        <p>Órganos Jurisdiccionales Transitorios de Extinción de Dominio, con vocación de servicio, comprometidos en la implementación y transformación de un sistema jurisdiccional que permita al Estado luchar contra la delincuencia organizada y la actividad ilícita, a través de la figura de Extinción de Dominio, como una herramienta de política criminal independiente y autónoma del proceso penal; contando para ello con óptimos recursos humanos y adecuado soporte administrativo y tecnológico.</p>
+        <h3 class="header3">MISIÓN</h3>
+        <p>Impartir justicia especializada con arreglo a la Constitución y las Leyes, contribuyendo al desapoderamiento de la riqueza obtenida como producto de actividades ilícitas y delitos en beneficio de la sociedad en general.</p>
+        <h3 class="header3">VALORES</h3>
+        <ul class="lista-inicio horizontal"> <!-- Agrega la clase "horizontal" para la lista horizontal -->
+            <li>1.Justicia</li>
+            <li>2.Honestidad</li>
+            <li>3.Imparcialidad</li>
+            <li>4.Transparencia</li>
+        </ul>
+        <h3 class="header3">VALORES</h3>
+        <ul class="lista-inicio vertical"> <!-- Agrega la clase "vertical" para la lista vertical -->
+	    <li>Extraer del comercio bienes que provengan de actividades ilícitas o estén destinados a ellas, trasladando al Estado la titularidad de dichos bienes, sin contraprestación alguna a favor requerido o tercero.</li>
+	    <li>Garantizar la licitud de los derechos reales que recaen sobre bienes patrimoniales.</li>
+	    <li>Prevenir y combatir la criminalidad organizada, la corrupción y toda actividad ilícita, excluyendo del sistema legal todos los activos de procedencia o destinación ilícita, para evitar que sean introducidos al sistema financiero y/o  al comercio.</li>
+        </ul>
+        <h3 class="header3">OBJETIVOS</h3>
+        <ul class="lista-inicio vertical"> <!-- Agrega la clase "vertical" para la lista vertical -->
+	    <li>Extraer del comercio bienes que provengan de actividades ilícitas o estén destinados a ellas, trasladando al Estado la titularidad de dichos bienes, sin contraprestación alguna a favor requerido o tercero.</li>
+	    <li>Garantizar la licitud de los derechos reales que recaen sobre bienes patrimoniales.</li>
+	    <li>Prevenir y combatir la criminalidad organizada, la corrupción y toda actividad ilícita, excluyendo del sistema legal todos los activos de procedencia o destinación ilícita, para evitar que sean introducidos al sistema financiero y/o  al comercio.</li>
+        </ul>
+        <h3 class="header3">ÁMBITO DE APLICACIÓN</h3>
+<p>Regulado el artículo I del Título Preliminar del D.L N° 1373. El proceso de extinción de dominio es susceptible de ser aplicado sobre todo bien patrimonial que constituya objeto, instrumento, efectos o ganancias que tiene relación o que se derivan de las siguientes actividades ilícitas: contra la administración pública, contra el medioambiente, tráfico ilícito de drogas, terrorismo, secuestro, extorsión, trata de personas, lavado de activos, contrabando, defraudación aduanera, defraudación tributaria, minera ilegal y otras con capacidad de generar dinero, bienes, efectos o ganancias de origen ilícito o actividades vinculadas a la criminalidad organizada.</p>
+        <h3 class="header3">PRINCIPIOS Y CRITERIOS APLICABLES</h3>
+        <h4>Regulados el artículo II del Título Preliminar del D.L N° 1373.</h4>
+        <ul class="lista-inicio vertical"> <!-- Agrega la clase "vertical" para la lista vertical -->
+	<li>Nulidad
+	Todos los actos que recaigan sobre bienes de origen o destino contrario al ordenamiento jurídico, 
+	son nulos de pleno derecho, sin perjuicio de los derechos de terceros de buena fe.
+	</li>			
+	<li>Especialidad
+	Los vacíos y ambigüedades que pudiera presentar este decreto legislativo en su interpretación o 
+	aplicación, se resuelven según la propia naturaleza y principios del proceso que regula
+	</li>			
+	<li>Autonomía
+	El proceso de extinción de dominio es independiente y autónomo del proceso penal, 
+	civil u otro de naturaleza jurisdiccional o arbitral, por lo que no puede 
+	invocarse la previa emisión de sentencia o laudo en éstos para suspender o 
+	impedir la emisión de sentencia en aquél.
+        </li>				
+	<li>Dominio de los bienes 
+	La protección del derecho de propiedad u otros derechos que recaigan sobre los bienes patrimoniales, se extiende únicamente a aquéllos que recaigan sobre bienes obtenidos con justo título o estén destinados a fines compatibles con el ordenamiento jurídico.
+	Asimismo, poseer, detentar o utilizar bienes de origen ilícito o destino ilícito no constituye justo título, salvo el derecho del tercero de buena fe.
+        </li>			
+	<li>Aplicación en el tiempo
+	La extinción de dominio se declara con independencia de que los presupuestos para su procedencia hayan ocurrido con anterioridad a la vigencia del presente decreto legislativo.
+        </li>
+	<li>Tutela jurisdiccional y debido proceso
+	En el trámite y ejercicio del proceso de extinción de dominio se observan los derechos a la tutela jurisdiccional y al debido proceso, reconocidos en el inciso 3 del artículo 139 de la Constitución Política del Perú, así como los derechos a la defensa, a la prueba y a la doble instancia que forman parte del contenido del derecho al debido proceso.
+        </li>
+	<li>Publicidad
+	El proceso de extinción de dominio es público a partir de la notificación del auto que admite la demanda o desde que se materializan las medidas cautelares. Las actuaciones comprendidas desde el inicio de la indagación son reservadas.
+        </li>					
+	<li>Cosa juzgada
+	En materia de extinción de dominio aplica la cosa juzgada, siempre que exista identidad de sujeto, objeto y fundamento.
+	</li>
+	<li>Carga de la prueba
+	Para la admisión a trámite de la demanda de extinción de dominio, corresponde al Fiscal ofrecer las pruebas o indicios concurrentes y razonables del origen o destino ilícito del bien. Admitida a trámite la demanda, corresponde al requerido demostrar el origen o destino lícito del mismo
+	</li>
+      </ul>
+        <h3 class="header3">DEFINICIONES</h3>
+        <h4>Previstas el artículo III del Título Preliminar del D.L N° 1373.</h4>
+        <ul class="lista-inicio vertical"> <!-- Agrega la clase "vertical" para la lista vertical -->
+	<li>Actividad ilícita: toda acción u omisión contraria al ordenamiento jurídico relacionada al ámbito de aplicación establecido en el artículo I del Título Preliminar.</li>
+	<li>Requerido: toda persona natural o jurídica que figura ostentando algún derecho sobre el bien que es objeto del proceso de extinción de dominio.</li>
+	<li>Bienes susceptibles de extinción de dominio: todos aquellos que, según las definiciones de los artículos 885 y  
+	886 del Código Civil, son muebles e inmuebles. 
+	Igualmente lo son las partes integrantes, accesorios, frutos y productos de esos bienes.</li>				
+	<li>Bienes abandonados: todos aquellos sobre los que se tiene elementos probatorios suficientes
+	que permitan determinar la existencia de una relación directa o indirecta con alguna actividad ilícita 
+	y sobre los cuales no ha sido posible establecer la identidad de sus titulares. 
+	También lo son aquellos en que habiéndose  establecido la titularidad mediante sentencia que 
+	declara infundada la demanda de extinción de dominio, no hayan sido reclamados por el titular en 
+	el plazo de treinta (30) días hábiles contados desde la notificación de la sentencia.</li>				
+	<li>Bienes patrimoniales: todos aquellos que puedan generar utilidad, rentabilidad u otra ventaja 
+	que represente un interés económico relevante para el Estado, según los criterios que establezca el reglamento.</li>
+	<li>Bienes cautelados: todos aquellos que se encuentran afectados por una medida cautelar dictada por el Juez, 
+	mientras se decide su situación en el proceso de extinción de dominio.</li>
+	<li>Bienes  que constituyen instrumento de actividades ilícitas: todos aquellos bienes que son 
+	resultado directo o indirecto de la comisión de actividades ilícitas.</li>
+	<li>Efectos o ganancias de actividades ilícitas: 
+	todos aquellos bienes que son el resultado directo o indirecto de la 
+	comisión de actividades ilícitas.</li>
+	<li>Extinción de Domino: consecuencia jurídico-patrimonial que traslada a la esfera del Estado 
+	la titularidad de los bienes que constituyen objeto, instrumento o efectos o ganancias de actividades ilícitas,
+	mediante sentencia emitida respetando el debido proceso, sin indemnización ni contraprestación alguna a favor del requerido o terceros.</li>
+	<li>Incremento patrimonial no justificado: aumento del patrimonio o del gasto económico de una persona natural o jurídica notoriamente superior al 
+	que normalmente haya podido percibir en virtud de su actividad laboral o económica lícita, existiendo elementos que permitan considerar razonablemente que 
+	dicho incremento patrimonial proviene de actividades ilícitas.</li>
+	<li>Tercero: toda persona natural o jurídica, diferente al requerido,  que se apersona al proceso de extinción de dominio reclamando tener algún derecho sobre el bien.</li>
+      </ul>
+    </div>
+</div>
+<!-------------------------------------------------------------------------->
+<!DESPLIEGUE DEL BOTÓN "ARCHIVO">
+<!-------------------------------------------------------------------------->
+<div id="archivo" class="content-container">
+    <div id="list1" class="list-container active">
+        <h3 class="header7">espacio</h3>
+        <h3 class="header2">Expedientes de Juzgado</h3>
+        <iframe src="https://drive.google.com/embeddedfolderview?id=1NSUIxnY7EMLYB-gEOH_HAixupBwMejmE#list"></iframe>
+    </div>
+    <div id="list2" class="list-container">
+        <h3 class="header7">espacio</h3>
+        <h3 class="header2">Expedientes de Sala</h3>
+        <iframe src="https://drive.google.com/embeddedfolderview?id=12bEekOCSrvkKaqKZIL-87D1eHNHskx84#list"></iframe>
+    </div>
+</div>
+<!-------------------------------------------------------------------------->
+<!CONFIGURACIÓN DEL PIE DE PÁGINA>
+<!-------------------------------------------------------------------------->
+    <footer>
+        <p>&copy; 2024 - Page Temp</p>
+    </footer>
+<!-------------------------------------------------------------------------->
+<!SCRIPT>
+<!-------------------------------------------------------------------------->
+<script>
+    function showContent(contentId) {
+        var contents = document.getElementsByClassName('content-container');
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].classList.remove('active');
+        }
+        document.getElementById(contentId).classList.add('active');
+
+        var header = document.getElementById('fixed-header');
+        if (contentId === 'archivo') {
+            header.style.display = 'block';
+        } else {
+            header.style.display = 'none';
+        }
+    }
+    function showList(listId) {
+        var lists = document.getElementsByClassName('list-container');
+        for (var i = 0; i < lists.length; i++) {
+            lists[i].classList.remove('active');
+        }
+        document.getElementById(listId).classList.add('active');
+    }
+</script>
+</body>
+</html>
